@@ -1,0 +1,12 @@
+name: Main
+
+on: [push, repository_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump UID & GID
+      run: |
+        echo User ID [UID]: $(id -u)
+        echo Group ID [GID]: $(id -g)
