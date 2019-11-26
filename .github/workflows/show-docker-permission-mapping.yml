@@ -1,0 +1,26 @@
+name: Show Docker Permission Mapping
+
+on: [push, repository_dispatch]
+
+jobs:
+  job_1:
+    name: Run as root in container
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:3.9
+      options: "--user 0:0"
+    steps:
+      - name: Check running processes for root
+        run: |
+          sleep 15 & ps aux | grep sleep
+
+  job_2:
+    name: Run as current user group in container
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:3.9
+      options: "--user 1001:115"
+    steps:
+      - name: Check running processes for current user
+        run: |
+          sleep 15 & ps aux | grep sleep
