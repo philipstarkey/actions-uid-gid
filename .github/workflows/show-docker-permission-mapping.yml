@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Check running processes for root
         run: |
-          sleep 15 & ps aux | grep sleep
+          sleep 30 & ps aux | grep sleep
 
   job_2:
     name: Run as current user group in container
@@ -23,4 +23,4 @@ jobs:
     steps:
       - name: Check running processes for current user
         run: |
-          sleep 15 & ps aux | grep sleep
+          sleep 30 & ps aux | grep sleep
